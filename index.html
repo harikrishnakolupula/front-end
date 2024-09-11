@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo.png" width="250" length="250" alt="Logo" class="logo">
+            <div class="title-wrapper">
+                <div id="welcomeText" align ="center">Welcome to our Delicious Dish Delivery!</div>
+                <h1 onclick="showItems()">Delicious Dish Delivery</h1>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showHome()">Home</a>
+        <a href="#" onclick="showRestaurants()">Restaurants</a>
+        <a href="#" onclick="showOrders()">Orders</a>
+        <a href="#" onclick="showProfile()">Profile</a>
+        <a href="#" onclick="showUserLogin()">User Login</a>
+        <a href="#" onclick="showAdminLogin()">Admin Login</a>
+    </nav>
+
+    <!-- Home Content Section -->
+    <div id="homeContent" class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for restaurants or cuisines...">
+            <button type="button" onclick="search()">Search</button>
+        </div>
+
+        <div id="restaurantList" class="restaurant-list">
+            <div class="restaurant-item">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.Xrid-2MI1khpipN9xDkRnwHaF7&pid=Api&P=0&h=180" alt="Restaurant Image">
+                <h3 onclick="showItems('gachibowli')">Delicious Dish Delivery - Gachibowli</h3>
+                <p>Hyderabad | Gachibowli</p>
+            </div>
+            <div class="restaurant-item">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.CIo2IbTkFMlLXje6pwbw6QHaE8&pid=Api&P=0&h=180" alt="Restaurant Image">
+                <h3 onclick="showItems('uppal')">Delicious Dish Delivery - Uppal</h3>
+                <p>Hyderabad | Uppal</p>
+            </div>
+            <div class="restaurant-item">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.juvqU8s9Zod-G6xJLtQtvQHaF7&pid=Api&P=0&h=180" alt="Restaurant Image">
+                <h3 onclick="showItems('kukatpally')">Delicious Dish Delivery - Kukatpally</h3>
+                <p>Hyderabad | Kukatpally</p>
+            </div>
+            <div class="restaurant-item">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.wIxg9ryIy-O8-fcfw4kzjwHaEC&pid=Api&P=0&h=180" alt="Restaurant Image">
+                <h3 onclick="showItems('ramanthapur')">Delicious Dish Delivery - Ramanthapur</h3>
+                <p>Hyderabad | Ramanthapur</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Items Content Section -->
+    <div id="itemsContent" class="container" style="display: none;">
+        <h2>Special Items</h2>
+        <div id="itemList" class="item-list">
+            <!-- Content will be dynamically added based on the branch -->
+        </div>
+    </div>
+
+    <!-- Restaurants Content Section -->
+    <div id="restaurantsContent" class="container" style="display: none;">
+        <h2>Restaurants</h2>
+
+        <!-- Search Bar for Restaurants -->
+        <div class="search-bar">
+            <input type="text" id="restaurantSearchInput" placeholder="Search for restaurants...">
+            <button type="button" onclick="searchRestaurants()">Search</button>
+        </div>
+
+        <!-- Different categories of restaurants -->
+        <div id="restaurantListContent" class="restaurant-list">
+            <div class="restaurant-item">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.N09B-OsOlpEQBzPKzM_eCgHaE7&pid=Api&P=0&h=180" alt="Fine Dining Image">
+                <h3>Gourmet Fine Dining</h3>
+                <p>Experience premium dishes with luxurious ambiance.</p>
+            </div>
+            <div class="restaurant-item">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.K0qlHmU9PxmOf8yK1zQtVQHaEK&pid=Api&P=0&h=180" alt="Fast Food Image">
+                <h3>Fast Food Joints</h3>
+                <p>Quick bites from popular chains and local eateries.</p>
+            </div>
+            <div class="restaurant-item">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.fBV_jsOIDvXd2syYOPTCKAHaE8&pid=Api&P=0&h=180" alt="Cafe Image">
+                <h3>Cozy Cafes</h3>
+                <p>Perfect for coffee lovers and dessert enthusiasts.</p>
+            </div>
+            <div class="restaurant-item">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.2d2a5MMWoTHTtynsImPM5AHaE8&pid=Api&P=0&h=180" alt="Street Food Image">
+                <h3>Street Food Corners</h3>
+                <p>Relish the flavors of the streets, quick and authentic.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Orders Content Section -->
+    <div id="ordersContent" class="container" style="display: none;">
+        <h2>Orders</h2>
+        <p>No orders placed yet.</p>
+    </div>
+
+    <!-- Profile Content Section -->
+    <div id="profileContent" class="container" style="display: none;">
+        <h2>Profile</h2>
+        <p><strong>Username:</strong> John Doe</p>
+        <p><strong>Mobile Number:</strong> +1234567890</p>
+        <p><strong>Address:</strong> 123 Main St, Hometown, USA</p>
+    </div>
+
+    <!-- User Login Section -->
+    <div id="userLoginContent" class="container" style="display: none;">
+        <h2>User Login</h2>
+        <form>
+            <label for="userName">Name:</label><br>
+            <input type="text" id="userName" name="userName"><br><br>
+            <label for="userEmail">Email:</label><br>
+            <input type="email" id="userEmail" name="userEmail"><br><br>
+            <button type="button" onclick="loginUser()">Login</button>
+        </form>
+    </div>
+
+    <!-- Admin Login Section -->
+    <div id="adminLoginContent" class="container" style="display: none;">
+        <h2>Admin Login</h2>
+        <form>
+            <label for="adminName">Admin Name:</label><br>
+            <input type="text" id="adminName" name="adminName"><br><br>
+            <label for="adminPassword">Password:</label><br>
+            <input type="password" id="adminPassword" name="adminPassword"><br><br>
+            <button type="button" onclick="loginAdmin()">Login</button>
+        </form>
+    </div>
+
+    <!-- JavaScript for Navigation and Content Display -->
+    <script>
+        function showHome() {
+            hideAllSections();
+            document.getElementById('homeContent').style.display = 'block';
+        }
+
+        function showItems(branch) {
+            hideAllSections();
+            document.getElementById('itemsContent').style.display = 'block';
+            
+            const itemList = document.getElementById('itemList');
+            itemList.innerHTML = '';
+
+            const specialItems = {
+                gachibowli: ['Special Biryani', 'Tandoori Chicken', 'Paneer Butter Masala'],
+                uppal: ['Veg Pizza', 'Pepper Chicken', 'Ice Cream Sundae'],
+                kukatpally: ['Chinese Noodles', 'Schezwan Fried Rice', 'Chicken Wings'],
+                ramanthapur: ['North Indian Thali', 'Mutton Rogan Josh', 'Gulab Jamun']
+            };
+
+            specialItems[branch].forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                div.innerHTML = `<p>${item}</p>`;
+                itemList.appendChild(div);
+            });
+        }
+
+        function showRestaurants() {
+            hideAllSections();
+            document.getElementById('restaurantsContent').style.display = 'block';
+        }
+
+        function showOrders() {
+            hideAllSections();
+            document.getElementById('ordersContent').style.display = 'block';
+        }
+
+        function showProfile() {
+            hideAllSections();
+            document.getElementById('profileContent').style.display = 'block';
+        }
+
+        function showUserLogin() {
+            hideAllSections();
+            document.getElementById('userLoginContent').style.display = 'block';
+        }
+
+        function showAdminLogin() {
+            hideAllSections();
+            document.getElementById('adminLoginContent').style.display = 'block';
+        }
+
+        function hideAllSections() {
+            document.getElementById('homeContent').style.display = 'none';
+            document.getElementById('itemsContent').style.display = 'none';
+            document.getElementById('restaurantsContent').style.display = 'none';
+            document.getElementById('ordersContent').style.display = 'none';
+            document.getElementById('profileContent').style.display = 'none';
+            document.getElementById('userLoginContent').style.display = 'none';
+            document.getElementById('adminLoginContent').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
